@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apix Interior | Jasa Desain Interior & Custom Furniture Bekasi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #c5a059; /* Gold Luxury */
+            --dark: #1a1a1a;
+            --light: #ffffff;
+            --gray: #f4f4f4;
+            --whatsapp: #25d366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
+
+        /* Floating WhatsApp Button with Text */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
+            transition: 0.3s;
+        }
+        .wa-float:hover { transform: scale(1.05); background-color: #128c7e; }
+        .wa-float i { font-size: 24px; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; background: white; position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--dark); text-decoration: none; text-transform: uppercase; }
+        .logo span { color: var(--primary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: var(--dark); font-weight: 500; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary); }
+
+        /* Hero */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 30px; }
+
+        /* General Section Styling */
+        section { padding: 80px 10%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; position: relative; padding-bottom: 15px; text-transform: uppercase; }
+        .section-title h2::after {
+            content: ''; width: 60px; height: 3px; background: var(--primary);
+            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+        }
+
+        /* About Us */
+        .about-container { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-img { flex: 1; min-width: 300px; border-radius: 10px; overflow: hidden; box-shadow: 20px 20px 0 var(--primary); }
+        .about-img img { width: 100%; display: block; }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+        }
+        .service-card {
+            background: white; padding: 40px 30px; text-align: center; border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+        }
+        .portfolio-item { position: relative; overflow: hidden; height: 300px; border-radius: 8px; }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .portfolio-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); display: flex; flex-direction: column;
+            justify-content: center; align-items: center; opacity: 0; transition: 0.5s; color: white;
+        }
+        .portfolio-item:hover img { transform: scale(1.1); }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        /* Footer */
+        footer { background: var(--dark); color: #ccc; padding: 60px 10% 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 25px; border-bottom: 2px solid var(--primary); display: inline-block; padding-bottom: 5px; }
+        .footer-col p { margin-bottom: 15px; font-size: 0.9rem; }
+        .footer-col i { color: var(--primary); margin-right: 10px; }
+
+        /* Instagram Button Footer */
+        .insta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;
+            font-weight: 600; margin-top: 10px; transition: 0.3s;
+        }
+        .insta-btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .wa-float { bottom: 20px; right: 20px; padding: 10px 15px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/6282134313332" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Konsultasi Gratis</span>
+    </a>
+
+    <nav>
+        <a href="#" class="logo">APIX <span>INTERIOR</span></a>
+        <ul>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#services">Layanan</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Apix Interior</h1>
+        <p>Spesialis Custom Furniture & Interior Design Jatiasih. Kualitas Mewah, Harga Bersahabat.</p>
+        <a href="#portfolio" class="btn" style="padding: 15px 30px; background: var(--primary); color: white; text-decoration: none; border-radius: 5px; font-weight: 600;">Lihat Hasil Kerja</a>
+    </header>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <div class="section-title" style="text-align: left;">
+                    <h2 style="left:0; transform:none;">About Us</h2>
+                </div>
+                <p><strong>Apix Interior</strong> hadir sebagai solusi profesional untuk kebutuhan interior dan furniture custom Anda. Berlokasi di Jatiasih, Bekasi, kami mengutamakan detail, kekuatan material, dan estetika desain.</p>
+                <br>
+                <p>Kami percaya bahwa setiap ruangan memiliki cerita. Itulah mengapa kami bekerja sepenuh hati untuk menciptakan ruang yang tidak hanya indah dipandang, tapi juga nyaman untuk ditinggali.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="Interior Workshop">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: var(--gray);">
+        <div class="section-title">
+            <h2>Layanan Kami</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Kitchen Set</h3>
+                <p>Dapur bersih dan fungsional dengan finishing HPL atau Duco terbaik.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bed"></i>
+                <h3>Kamar Tidur</h3>
+                <p>Pembuatan wardrobe (lemari pakaian), dipan, dan backdrop TV custom.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-couch"></i>
+                <h3>Ruang Tamu</h3>
+                <p>Partisi ruangan, sofa custom, dan wall panel untuk kesan mewah.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="section-title">
+            <h2>Portfolio</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1556912177-c54030639aae?auto=format&fit=crop&w=600&q=80" alt="Kitchen">
+                <div class="portfolio-overlay">
+                    <h3>Modern Kitchen</h3>
+                    <p>Jatiasih Project</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" alt="Living Room">
+                <div class="portfolio-overlay">
+                    <h3>Elegant Cabinet</h3>
+                    <p>Custom Furniture</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=600&q=80" alt="Bedroom">
+                <div class="portfolio-overlay">
+                    <h3>Master Bedroom</h3>
+                    <p>Minimalist Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 20px;">APIX <span>INTERIOR</span></div>
+                <p>Wujudkan rumah impian Anda bersama kami. Hubungi kami untuk konsultasi dan survei lokasi gratis.</p>
+                <a href="https://www.instagram.com/apix_interior/" class="insta-btn" target="_blank">
+                    <i class="fab fa-instagram"></i> Follow Instagram
+                </a>
+            </div>
+            <div class="footer-col">
+                <h4>Workshop & Office</h4>
+                <p><i class="fas fa-map-marker-alt"></i> 
+                    Gang K24 atau Sebelah Gereja HKBP, <br>
+                    Jl. Raya Jatiasih Jl. Swadaya Raya, <br>
+                    RT.001/RW.004, Jatirasa, Kec. Jatiasih, <br>
+                    Kota Bekasi, Jawa Barat 17424
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <p><i class="fas fa-phone"></i> 082134313332</p>
+                <p><i class="fab fa-whatsapp"></i> +62 821-3431-3332</p>
+                <p><i class="fas fa-envelope"></i> hello@apixinterior.com</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; color: #666;">
+            &copy; 2025 Apix Interior Bekasi. Seluruh Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+</body>
+</html>
