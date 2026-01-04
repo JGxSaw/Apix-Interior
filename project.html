@@ -14,7 +14,6 @@
         .gold-text { color: var(--gold); }
         .stats-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
-        /* Floating WA Button Fixed */
         .wa-float-fixed {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
             padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
@@ -30,7 +29,7 @@
         <i class="fab fa-whatsapp text-2xl"></i><span>Konsultasi Sekarang</span>
     </a>
 
-    <nav class="navy-bg text-white p-6 sticky top-0 z-50 flex items-center px-[10%]">
+    <nav class="navy-bg text-white p-6 sticky top-0 z-50 flex items-center px-[10%] shadow-lg">
         <a href="index.html" class="font-bold uppercase italic text-lg tracking-tighter">APIX <span class="gold-text">INTERIOR</span></a>
     </nav>
 
@@ -43,13 +42,13 @@
 
         <div class="grid md:grid-cols-3 gap-6 mb-16 text-center text-xs">
             <div class="stats-card"><span class="text-2xl mb-2 block">📍</span><p class="font-bold text-gray-400 uppercase mb-1">Lokasi</p><p id="p-lokasi" class="font-semibold italic"></p></div>
-            <div class="stats-card"><span class="text-2xl mb-2 block">📦</span><p class="font-bold text-gray-400 uppercase mb-1">Material</p><p id="p-material" class="font-semibold">Plywood 18mm & HPL Taco</p></div>
-            <div class="stats-card"><span class="text-2xl mb-2 block">🛡️</span><p class="font-bold text-gray-400 uppercase mb-1">Garansi</p><p class="font-semibold">100% Produk Apix</p></div>
+            <div class="stats-card"><span class="text-2xl mb-2 block">📦</span><p class="font-bold text-gray-400 uppercase mb-1">Material</p><p id="p-material" class="font-semibold italic">Plywood 18mm & HPL Taco</p></div>
+            <div class="stats-card"><span class="text-2xl mb-2 block">🛡️</span><p class="font-bold text-gray-400 uppercase mb-1">Status</p><p class="font-semibold">Bergaransi 100%</p></div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-16 mb-24 items-start">
             <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="text-xl font-bold uppercase mb-6 italic border-l-4 border-gold pl-4">Rincian Project</h3>
+                <h3 class="text-xl font-bold uppercase mb-6 italic border-l-4 border-gold pl-4">Deskripsi Project</h3>
                 <p id="p-deskripsi" class="text-gray-600 leading-loose text-sm italic"></p>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-2xl border-[10px] border-white"><img id="p-img-after" src="" class="w-full"></div>
@@ -64,24 +63,28 @@
                 </div>
                 <div class="relative overflow-hidden rounded-xl shadow-lg border-4 border-gold">
                     <img id="p-img-after-2" src="" class="w-full h-80 object-cover">
-                    <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[9px] font-bold uppercase">Hasil Apix (After)</div>
+                    <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[9px] font-bold uppercase">After (Apix Interior)</div>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer class="bg-[#1a1a1a] text-gray-600 py-12 text-center border-t border-gray-900">
+        <div class="text-white text-lg font-bold uppercase mb-4 italic tracking-tighter">APIX <span class="gold-text">INTERIOR</span></div>
+        <p class="text-[9px] uppercase tracking-[0.4em] font-medium">NIB: 0509220020851</p>
+    </footer>
 
     <script>
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqIMofhXamYQSeLgR5c4sQFy0-__RlOjdudaXJ5STr0QgqhVKr40cxDC_hKDcusP9eyYuN-UeorIq1/pub?output=csv';
         const urlParams = new URLSearchParams(window.location.search);
         const targetNama = urlParams.get('nama');
 
-        // Nama instan sebelum database termuat
         if (targetNama) document.getElementById('p-nama').innerText = targetNama;
 
         const localProjects = [
-            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", before: "https://via.placeholder.com/800x600?text=Before+Kitchen", after: "2.jpg", deskripsi: "Kitchen set modern dengan backsplash marmer hitam mewah." },
-            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", before: "https://via.placeholder.com/800x600?text=Before+Bedroom", after: "Cibitung-Bedroom.jpg", deskripsi: "Kamar tidur bernuansa cream yang memberikan energi positif." },
-            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", before: "https://via.placeholder.com/800x600?text=Before+Closet", after: "Walk-in-Closet.jpg", deskripsi: "Walk-in closet impian dengan aksen kaca mewah." }
+            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", before: "before-kitchen.jpg", after: "2.jpg", deskripsi: "Perpaduan HPL motif kayu dan backsplash marmer hitam memberikan kesan premium." },
+            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", before: "before-bedroom.jpg", after: "bedroom-intan.jpg", deskripsi: "Bedroom set bernuansa cream dengan pencahayaan warm white yang menenangkan." },
+            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", before: "before-closet.jpg", after: "closet-ll.jpg", deskripsi: "Walk-in closet impian ala Pinterest yang memaksimalkan setiap sudut ruangan." }
         ];
 
         async function loadDetail() {
