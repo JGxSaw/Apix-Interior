@@ -8,11 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { 
-            --navy: #0a192f; /* Navy Gelap */
-            --gold: #c5a059; /* Gold Premium */
-            --orange: #f97316; /* Orange */
-        }
+        :root { --navy: #0a192f; --gold: #c5a059; --orange: #f97316; }
         body { font-family: 'Poppins', sans-serif; color: var(--navy); scroll-behavior: smooth; }
         .gold-text { color: var(--gold); }
         .navy-bg { background-color: var(--navy); }
@@ -35,18 +31,26 @@
         }
 
         .about-img { position: relative; border-radius: 10px; overflow: hidden; box-shadow: 20px 20px 0 var(--gold); }
-        .modal { display: none; position: fixed; z-index: 10001; inset: 0; background: rgba(0,0,0,0.9); overflow-y: auto; }
-        .modal.active { display: block; }
+
+        /* Project Card Hover Overlay */
+        .project-card { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; }
+        .project-card img { transition: 0.7s ease; width: 100%; height: 320px; object-fit: cover; }
+        .hover-overlay {
+            position: absolute; inset: 0; background: rgba(10, 25, 47, 0.9);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            padding: 25px; text-align: center; opacity: 0; transition: 0.4s ease; color: white;
+        }
+        .project-card:hover .hover-overlay { opacity: 1; }
+        .project-card:hover img { transform: scale(1.1); }
         
         .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
-        .faq-question { cursor: pointer; display: flex; justify-content: space-between; font-weight: 600; font-size: 13px; }
+        .faq-question { font-weight: 600; font-size: 13px; display: flex; justify-content: space-between; cursor: pointer; }
     </style>
 </head>
 <body class="bg-white">
 
     <a href="https://wa.me/6282134313332?text=Halo%20Apix%20Interior" target="_blank" class="wa-float">
-        <i class="fab fa-whatsapp text-2xl"></i>
-        <span>Konsultasi Sekarang</span>
+        <i class="fab fa-whatsapp text-2xl"></i><span>Konsultasi Sekarang</span>
     </a>
 
     <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6">
@@ -58,7 +62,6 @@
                 <a href="#portfolio" class="hover:gold-text transition">Portfolio</a>
                 <a href="#price" class="hover:gold-text transition">Harga</a>
                 <a href="#faq" class="hover:gold-text transition">FAQ</a>
-                <a href="#contact" class="hover:gold-text transition">Kontak</a>
             </div>
         </div>
     </nav>
@@ -70,137 +73,83 @@
             Custom Furniture & Interior Untuk Hunian Lebih Rapi dan Nyaman
         </p>
         <div class="flex flex-col md:flex-row gap-4">
-            <a href="https://wa.me/6282134313332" class="bg-[#25d366] text-white px-10 py-4 font-bold rounded shadow-lg uppercase tracking-widest text-[11px] hover:opacity-90 transition">Konsultasi Gratis</a>
-            <a href="#portfolio" class="bg-orange-500 text-white px-10 py-4 font-bold rounded shadow-lg uppercase tracking-widest text-[11px] hover:bg-orange-600 transition shadow-xl">Lihat Portofolio</a>
+            <a href="https://wa.me/6282134313332" class="bg-[#25d366] text-white px-10 py-4 font-bold rounded shadow-lg uppercase tracking-widest text-[11px]">Konsultasi Gratis</a>
+            <a href="#portfolio" class="bg-orange-500 text-white px-10 py-4 font-bold rounded shadow-lg uppercase tracking-widest text-[11px]">Lihat Portofolio</a>
         </div>
     </header>
 
-    <div class="navy-bg py-8 overflow-hidden text-center">
-        <p class="text-[10px] md:text-xs font-bold uppercase tracking-[0.4em] text-white px-6">
-            Kitchen Set • Wardrobe • Closet • Backdrop TV • Storage Furniture
-        </p>
-    </div>
-
     <section id="about" class="py-24 px-[10%] bg-gray-50">
-        <div class="grid md:grid-cols-2 gap-20 items-center">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80" alt="About">
-            </div>
+        <div class="grid md:grid-cols-2 gap-20 items-center text-left">
+            <div class="about-img"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"></div>
             <div>
-                <h2 class="text-3xl font-bold mb-8 uppercase tracking-tighter italic">Tentang APIX Interior</h2>
-                <p class="mb-6 leading-loose text-sm text-gray-600 italic font-medium">
-                    "Karena kami percaya furniture bukan hanya tentang bentuk — tapi bagaimana ruang terasa ketika ditempati."
-                </p>
-                <p class="mb-8 leading-loose text-sm text-gray-600">
-                    Kami membantu mewujudkan desain interior yang lebih efektif, efisien, indah dipandang, dan nyaman digunakan untuk hunian Bekasi.
-                </p>
-                <div class="grid grid-cols-1 gap-4 text-[10px] font-bold uppercase tracking-widest text-gray-700">
-                    <div class="flex items-center gap-4 border-b pb-3"><i class="fas fa-check text-[#c5a059]"></i> Legalitas Resmi (NIB: 0509220020851)</div>
-                    <div class="flex items-center gap-4 pb-3"><i class="fas fa-check text-[#c5a059]"></i> Material Plywood 18mm & Finishing HPL</div>
+                <h2 class="text-3xl font-bold mb-8 uppercase italic">Tentang APIX Interior</h2>
+                <p class="mb-6 leading-loose text-sm text-gray-600 italic">"Furniture bukan hanya tentang bentuk — tapi bagaimana ruang terasa ketika ditempati."</p>
+                <div class="space-y-3 text-[10px] font-bold uppercase tracking-widest text-gray-700">
+                    <p>✔ Legalitas Resmi (NIB: 0509220020851)</p>
+                    <p>✔ Material Plywood 18mm & Finishing HPL</p>
+                    <p>✔ Workshop Mandiri di Bekasi</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="services" class="py-24 px-[10%] text-center">
-        <h2 class="text-3xl font-bold uppercase mb-16 italic italic">Layanan Utama</h2>
+        <h2 class="text-3xl font-bold uppercase mb-16 italic">Layanan Utama</h2>
         <div class="grid md:grid-cols-3 gap-10 text-left">
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-utensils gold-text text-2xl mb-4"></i>
-                <h4 class="font-bold uppercase text-xs mb-3">Kitchen Set & Pantry</h4>
-                <p class="text-[11px] text-gray-500">Dibuat presisi sesuai kebutuhan memasak.</p>
+                <h4 class="font-bold uppercase text-xs mb-3 italic">Kitchen Set</h4>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Didesain presisi untuk kenyamanan memasak maksimal dengan material tahan lama.</p>
             </div>
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-door-open gold-text text-2xl mb-4"></i>
-                <h4 class="font-bold uppercase text-xs mb-3">Wardrobe & Closet</h4>
-                <p class="text-[11px] text-gray-500">Penyimpanan maksimal dan estetika modern.</p>
+                <h4 class="font-bold uppercase text-xs mb-3 italic">Wardrobe</h4>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Pemanfaatan ruang efisien dengan penataan fungsional sesuai kebutuhan koleksi Anda.</p>
             </div>
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-tv gold-text text-2xl mb-4"></i>
-                <h4 class="font-bold uppercase text-xs mb-3">Backdrop TV</h4>
-                <p class="text-[11px] text-gray-500">Point of view utama ruang keluarga Anda.</p>
+                <h4 class="font-bold uppercase text-xs mb-3 italic">Backdrop TV</h4>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Focal point mewah untuk ruang keluarga Anda dengan penataan yang rapi dan elegan.</p>
             </div>
         </div>
     </section>
 
     <section id="portfolio" class="py-24 px-[10%] bg-gray-50 text-center">
-        <h2 class="text-3xl font-bold uppercase mb-16 italic italic">Project Portfolio</h2>
+        <h2 class="text-3xl font-bold uppercase mb-4 italic">Project Portfolio</h2>
+        <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-16 italic">Klik untuk melihat detail transformasi & material</p>
         <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8 text-left">
-            <p class="col-span-full text-center text-gray-400">Memuat Karya Terupdate...</p>
+            <p class="col-span-full text-center text-gray-400 italic">Sinkronisasi Database...</p>
         </div>
     </section>
 
     <section id="price" class="py-24 px-[10%] text-center">
-        <h2 class="text-3xl font-bold uppercase mb-12 italic italic">Harga Transparan</h2>
-        <p class="text-sm text-gray-600 mb-12 italic italic max-w-2xl mx-auto">Kami membantu menyesuaikan budget tanpa menurunkan value fungsi.</p>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-gray-50 p-8 rounded-lg border-t-4 border-[#c5a059]"><h4 class="font-bold uppercase text-xs italic">Survey & Ukur</h4></div>
-            <div class="bg-gray-50 p-8 rounded-lg border-t-4 border-[#c5a059]"><h4 class="font-bold uppercase text-xs italic">Produksi Workshop</h4></div>
-            <div class="bg-gray-50 p-8 rounded-lg border-t-4 border-[#c5a059]"><h4 class="font-bold uppercase text-xs italic">Instalasi</h4></div>
+        <h2 class="text-3xl font-bold uppercase mb-12 italic">Harga Transparan</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-[10px] font-bold uppercase tracking-widest">
+            <div class="bg-white p-10 rounded-lg shadow-sm border-t-4 border-gold">Survey & Ukur Gratis</div>
+            <div class="bg-white p-10 rounded-lg shadow-sm border-t-4 border-gold">Produksi Workshop Bekasi</div>
+            <div class="bg-white p-10 rounded-lg shadow-sm border-t-4 border-gold">Instalasi Profesional</div>
         </div>
     </section>
 
-    <section id="faq" class="py-24 bg-white px-[10%] max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold uppercase mb-12 italic text-center italic">FAQ</h2>
-        <div class="faq-item">
-            <div class="faq-question">Q: Apakah menerima renovasi furniture lama? <span>+</span></div>
-            <p class="text-xs text-gray-500 mt-4 leading-relaxed">A: Tidak, APIX fokus hanya pada pembuatan baru.</p>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">Q: Berapa lama pengerjaan? <span>+</span></div>
-            <p class="text-xs text-gray-500 mt-4">A: Estimasi 3–6 minggu tergantung antrian dan skala.</p>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">Q: Area layanan? <span>+</span></div>
-            <p class="text-xs text-gray-500 mt-4">A: Bekasi, Jakarta, Depok, Tangerang, Bogor.</p>
-        </div>
+    <section id="faq" class="py-24 px-[10%] max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold uppercase mb-12 italic text-center">FAQ</h2>
+        <div class="faq-item"><div class="faq-question">Q: Apakah menerima renovasi furniture lama? <span>+</span></div><p class="text-xs text-gray-500 mt-4 italic">A: Tidak, APIX fokus hanya pada pembuatan baru.</p></div>
+        <div class="faq-item"><div class="faq-question">Q: Area layanan? <span>+</span></div><p class="text-xs text-gray-500 mt-4 italic">A: Bekasi, Jakarta, Depok, Tangerang, Bogor.</p></div>
     </section>
 
-    <footer id="contact" class="bg-[#1a1a1a] text-[#777] py-20 px-[10%]">
-        <div class="grid md:grid-cols-3 gap-16">
-            <div>
-                <div class="text-white text-xl font-bold uppercase mb-8 italic italic">APIX <span class="gold-text">INTERIOR</span></div>
-                <p class="text-[11px] leading-loose uppercase tracking-widest mb-6">"Solusi Furniture Hunian Anda"</p>
-                <div class="flex space-x-6 text-white text-xl">
-                    <a href="https://www.instagram.com/apix_interior/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@apix_interior" target="_blank"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-8 uppercase text-xs border-b border-gray-800 pb-2 italic">Workshop Bekasi</h4>
-                <p class="text-[11px] leading-relaxed uppercase tracking-widest">Maps APIX INTERIOR, Bekasi (Sebelah Gereja HKBP).</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-8 uppercase text-xs border-b border-gray-800 pb-2 italic">Kontak Kami</h4>
-                <p class="text-[11px] mb-2 tracking-widest uppercase font-bold text-white italic">Hubungi Kami Sekarang</p>
-                <p class="text-[11px] mb-2 tracking-widest"><i class="fab fa-whatsapp text-[#c5a059] mr-2"></i> 0821-3431-3332</p>
-                <p class="text-[11px] tracking-widest"><i class="fas fa-envelope text-[#c5a059] mr-2"></i> interiorapix@gmail.com</p>
-            </div>
-        </div>
-        <div class="mt-20 pt-10 border-t border-gray-900 text-center text-[9px] uppercase tracking-[0.4em] font-bold">
-            &copy; 2025 APIX INTERIOR – Custom Furniture & Interior
-        </div>
+    <footer class="bg-[#1a1a1a] text-[#777] py-16 px-[10%] text-center border-t border-gray-900 uppercase tracking-widest text-[9px]">
+        &copy; 2025 APIX INTERIOR – BEKASI. NIB: 0509220020851
     </footer>
-
-    <div id="projectModal" class="modal px-6 py-20">
-        <div class="max-w-5xl mx-auto bg-white rounded-sm overflow-hidden relative shadow-2xl p-10">
-            <button onclick="toggleModal()" class="absolute top-8 right-8 text-3xl hover:text-red-500 transition">&times;</button>
-            <h2 id="modalTitle" class="text-3xl font-bold uppercase mb-2 tracking-tighter italic"></h2>
-            <p id="modalLoc" class="text-[#c5a059] text-[10px] font-bold uppercase tracking-widest mb-12"></p>
-            <div class="grid md:grid-cols-2 gap-6 mb-12">
-                <div class="relative h-80 overflow-hidden"><img id="imgBefore" src="" class="w-full h-full object-cover grayscale shadow-lg"><div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 text-[10px] font-bold uppercase italic">Before</div></div>
-                <div class="relative h-80 overflow-hidden border-2 border-[#c5a059] shadow-lg"><img id="imgAfter" src="" class="w-full h-full object-cover"><div class="absolute top-4 left-4 bg-[#c5a059] text-white px-3 py-1 text-[10px] font-bold uppercase italic">After</div></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-12 border-t pt-10">
-                <div class="md:col-span-2"><h3 class="font-bold uppercase text-xs mb-4 italic italic gold-text">Rincian Penjelasan:</h3><p id="modalDesc" class="text-gray-600 text-sm leading-relaxed italic"></p></div>
-                <div class="bg-gray-50 p-6 rounded border border-gray-100"><h3 class="font-bold uppercase text-[10px] mb-4 border-b pb-2 tracking-widest italic">Detail:</h3><p id="modalSpecs" class="text-[10px] font-semibold text-gray-700 uppercase leading-loose"></p></div>
-            </div>
-            <div class="mt-12 text-center"><a id="modalWa" href="#" target="_blank" class="inline-block bg-[#25D366] text-white px-10 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest shadow-xl">Konsultasi Sekarang 💬</a></div>
-        </div>
-    </div>
 
     <script>
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqIMofhXamYQSeLgR5c4sQFy0-__RlOjdudaXJ5STr0QgqhVKr40cxDC_hKDcusP9eyYuN-UeorIq1/pub?output=csv';
+
+        // 3 FOTO TERBARU
+        const localProjects = [
+            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", after: "2.jpg", deskripsi: "Kitchen set modern dengan kombinasi motif kayu dan marmer hitam mewah." },
+            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", after: "Cibitung-Bedroom.jpg", deskripsi: "Bedroom set bernuansa cream yang memberikan energi positif hunian." },
+            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", after: "Walk-in-Closet.jpg", deskripsi: "Walk-in closet impian dengan aksen kaca dan pencahayaan interior." }
+        ];
 
         async function loadProjects() {
             try {
@@ -209,45 +158,39 @@
                 const rows = data.split('\n').slice(1);
                 const grid = document.getElementById('portfolioGrid');
                 grid.innerHTML = '';
+                
+                localProjects.forEach(p => renderCard(p, grid));
+
                 rows.forEach(row => {
                     const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
                     if(!cols || cols.length < 6) return;
-                    const [nama, lokasi, before, after, desain, deskripsi, material] = cols.map(c => c.replace(/"/g, ''));
-                    
-                    // Filter: Jangan tampilkan proyek Sofa
+                    const nama = cols[0].replace(/"/g, '');
                     if(nama.toLowerCase().includes('sofa')) return;
 
-                    grid.innerHTML += `
-                        <div class="group relative overflow-hidden h-80 rounded shadow-md cursor-pointer border border-gray-100 bg-white">
-                            <img src="${after}" class="w-full h-full object-cover transition duration-1000 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 text-white p-6 text-center">
-                                <h3 class="text-sm font-bold uppercase mb-4 tracking-widest border-b border-[#c5a059] pb-2 italic italic">${nama}</h3>
-                                <button onclick="openModal('${nama.replace(/'/g, "\\'")}','${lokasi.replace(/'/g, "\\'")}','${before}','${after}','${deskripsi.replace(/'/g, "\\'")}','${material.replace(/'/g, "\\'")}')" 
-                                        class="bg-[#c5a059] px-8 py-3 text-[10px] font-bold uppercase rounded shadow-2xl">Lihat Detail</button>
-                            </div>
-                        </div>`;
+                    renderCard({
+                        nama, lokasi: cols[1].replace(/"/g, ''),
+                        after: cols[3].replace(/"/g, ''),
+                        deskripsi: cols[5].replace(/"/g, '').substring(0, 80) + '...'
+                    }, grid);
                 });
             } catch (e) { console.error(e); }
         }
 
-        function openModal(nama, lokasi, before, after, deskripsi, material) {
-            document.getElementById('modalTitle').innerText = nama;
-            document.getElementById('modalLoc').innerText = lokasi;
-            document.getElementById('imgBefore').src = before;
-            document.getElementById('imgAfter').src = after;
-            document.getElementById('modalDesc').innerText = deskripsi;
-            document.getElementById('modalSpecs').innerText = material;
-            const waMsg = encodeURIComponent(`Halo Apix Interior, saya tertarik dengan proyek ${nama} di ${lokasi}.`);
-            document.getElementById('modalWa').href = `https://wa.me/6282134313332?text=${waMsg}`;
-            document.getElementById('projectModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+        function renderCard(p, container) {
+            container.innerHTML += `
+                <div class="project-card shadow-lg" onclick="location.href='project.html?nama=${encodeURIComponent(p.nama)}'">
+                    <img src="${p.after}" alt="${p.nama}">
+                    <div class="hover-overlay">
+                        <h3 class="text-sm font-bold uppercase italic mb-2">${p.nama}</h3>
+                        <p class="text-[10px] italic mb-4 text-gray-200">${p.deskripsi}</p>
+                        <span class="text-[9px] font-bold uppercase border-b border-gold pb-1 text-gold">See Details >></span>
+                    </div>
+                    <div class="p-6 bg-white flex justify-between items-center">
+                        <div><p class="text-[9px] text-gray-400 uppercase">${p.lokasi}</p><h4 class="text-xs font-bold uppercase italic">${p.nama}</h4></div>
+                        <span class="gold-text">→</span>
+                    </div>
+                </div>`;
         }
-
-        function toggleModal() {
-            document.getElementById('projectModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
         loadProjects();
     </script>
 </body>
