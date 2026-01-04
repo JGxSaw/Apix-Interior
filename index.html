@@ -13,13 +13,13 @@
         .gold-text { color: var(--gold); }
         .navy-bg { background-color: var(--navy); }
         
+        /* Floating WA */
         .wa-float {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
             padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
             text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase;
             box-shadow: 0 10px 25px rgba(37,211,102,0.3); z-index: 10000; transition: 0.3s;
         }
-        .wa-float:hover { transform: scale(1.05) translateY(-5px); background-color: #128c7e; }
 
         .hero {
             height: 85vh;
@@ -45,7 +45,7 @@
 </head>
 <body class="bg-white">
 
-    <a href="https://wa.me/6282134313332?text=Halo%20Apix%20Interior" target="_blank" class="wa-float">
+    <a href="https://wa.me/6282134313332" target="_blank" class="wa-float">
         <i class="fab fa-whatsapp text-2xl"></i><span>Konsultasi Sekarang</span>
     </a>
 
@@ -65,9 +65,7 @@
     <header class="hero">
         <h4 class="gold-text font-bold tracking-[0.5em] uppercase text-[12px] mb-4">APIX INTERIOR</h4>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight italic">"Solusi Furniture Hunian Anda"</h1>
-        <p class="text-sm md:text-lg max-w-3xl mb-10 font-light uppercase tracking-widest text-gray-200">
-            Custom Furniture & Interior Untuk Hunian Lebih Rapi dan Nyaman
-        </p>
+        <p class="text-sm md:text-lg max-w-3xl mb-10 font-light uppercase tracking-widest text-gray-200">Custom Furniture & Interior Untuk Hunian Lebih Rapi dan Nyaman</p>
         <div class="flex flex-col md:flex-row gap-4">
             <a href="https://wa.me/6282134313332" class="bg-[#25d366] text-white px-10 py-4 font-bold rounded shadow-lg uppercase tracking-widest text-[11px]">Konsultasi Gratis</a>
             <a href="#portfolio" class="bg-orange-500 text-white px-10 py-4 font-bold rounded shadow-lg uppercase tracking-widest text-[11px]">Lihat Portofolio</a>
@@ -76,9 +74,7 @@
 
     <section id="about" class="py-24 px-[10%] bg-gray-50">
         <div class="grid md:grid-cols-2 gap-20 items-center text-left">
-            <div class="rounded-xl overflow-hidden shadow-2xl border-[15px] border-white">
-                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80">
-            </div>
+            <div class="rounded-xl overflow-hidden shadow-2xl border-[15px] border-white"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"></div>
             <div>
                 <h2 class="text-3xl font-bold mb-8 uppercase italic">Tentang APIX Interior</h2>
                 <p class="mb-6 leading-loose text-sm text-gray-600 italic">"Furniture bukan hanya tentang bentuk — tapi bagaimana ruang terasa ketika ditempati."</p>
@@ -97,55 +93,54 @@
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-utensils gold-text text-2xl mb-4"></i>
                 <h4 class="font-bold uppercase text-xs mb-3 italic">Kitchen Set</h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed italic">Didesain presisi untuk kenyamanan memasak maksimal dengan material plywood 18mm.</p>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Desain presisi dengan material Plywood 18mm untuk ketahanan jangka panjang.</p>
             </div>
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-door-open gold-text text-2xl mb-4"></i>
                 <h4 class="font-bold uppercase text-xs mb-3 italic">Wardrobe</h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed italic">Pemanfaatan ruang efisien dengan penataan fungsional sesuai kebutuhan koleksi Anda.</p>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Solusi penyimpanan pakaian yang rapi dan fungsional sesuai ukuran ruangan.</p>
             </div>
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-tv gold-text text-2xl mb-4"></i>
                 <h4 class="font-bold uppercase text-xs mb-3 italic">Backdrop TV</h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed italic">Focal point mewah untuk ruang keluarga Anda dengan penataan yang rapi dan elegan.</p>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Meningkatkan estetika ruang keluarga dengan penataan kabel yang rapi.</p>
             </div>
         </div>
     </section>
 
     <section id="portfolio" class="py-24 px-[10%] bg-gray-50 text-center">
-        <h2 class="text-3xl font-bold uppercase mb-4 italic">Project Portfolio</h2>
-        <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-16 italic">Klik untuk melihat detail transformasi & material</p>
-        <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8 text-left">
-            <p class="col-span-full text-center text-gray-400 italic">Sinkronisasi Database...</p>
+        <h2 class="text-3xl font-bold uppercase mb-16 italic">Project Portfolio</h2>
+        <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8 text-left"></div>
+    </section>
+
+    <footer class="bg-[#1a1a1a] text-gray-400 py-16 px-[10%] border-t border-gray-900">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <div class="text-white text-xl font-bold uppercase mb-4 italic tracking-tighter">APIX <span class="gold-text">INTERIOR</span></div>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed">NIB: 0509220020851</p>
+            </div>
+            <div>
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Lokasi Workshop</h4>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed">Bekasi, Jawa Barat<br>(Sebelah Gereja HKBP)</p>
+            </div>
+            <div class="md:text-right">
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Media Sosial</h4>
+                <div class="flex justify-center md:justify-end gap-6 text-xl">
+                    <a href="https://www.tiktok.com/@apix_interior" target="_blank" class="hover:gold-text transition"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/apix_interior" target="_blank" class="hover:gold-text transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6282134313332" target="_blank" class="hover:gold-text transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p class="text-[9px] mt-4 uppercase tracking-[0.2em] text-gray-600">&copy; 2026 APIX Interior</p>
+            </div>
         </div>
-    </section>
-
-    <section id="price" class="py-24 px-[10%] text-center">
-        <h2 class="text-3xl font-bold uppercase mb-12 italic">Harga Transparan</h2>
-        <div class="grid md:grid-cols-3 gap-8 text-[10px] font-bold uppercase tracking-widest">
-            <div class="bg-white p-10 rounded-lg shadow-sm border-t-4 border-gold">Survey & Ukur Gratis</div>
-            <div class="bg-white p-10 rounded-lg shadow-sm border-t-4 border-gold">Produksi Workshop Bekasi</div>
-            <div class="bg-white p-10 rounded-lg shadow-sm border-t-4 border-gold">Instalasi Profesional</div>
-        </div>
-    </section>
-
-    <section id="faq" class="py-24 px-[10%] max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold uppercase mb-12 italic text-center">FAQ</h2>
-        <div class="faq-item"><div class="faq-question">Q: Apakah menerima renovasi furniture lama? <span>+</span></div><p class="text-xs text-gray-500 mt-4 italic">A: Tidak, APIX fokus hanya pada pembuatan baru.</p></div>
-        <div class="faq-item"><div class="faq-question">Q: Area layanan? <span>+</span></div><p class="text-xs text-gray-500 mt-4 italic">A: Bekasi, Jakarta, Depok, Tangerang, Bogor.</p></div>
-    </section>
-
-    <footer class="bg-[#1a1a1a] text-[#777] py-16 px-[10%] text-center border-t border-gray-900 uppercase tracking-widest text-[9px]">
-        &copy; 2026 APIX INTERIOR – BEKASI. NIB: 0509220020851
     </footer>
 
     <script>
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqIMofhXamYQSeLgR5c4sQFy0-__RlOjdudaXJ5STr0QgqhVKr40cxDC_hKDcusP9eyYuN-UeorIq1/pub?output=csv';
-
         const localProjects = [
-            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", after: "2.jpg", deskripsi: "Project kitchen set ini mengedepankan fungsionalitas dengan tampilan maskulin mewah." },
-            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", after: "bedroom-intan.jpg", deskripsi: "Bedroom set bernuansa cream yang memberikan energi positif." },
-            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", after: "closet-ll.jpg", deskripsi: "Walk-in closet impian dengan aksen kaca dan pencahayaan mewah." }
+            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", after: "2.jpg", deskripsi: "Project kitchen set ini mengedepankan fungsionalitas mewah." },
+            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", after: "bedroom-intan.jpg", deskripsi: "Bedroom set bernuansa cream untuk kenyamanan istirahat." },
+            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", after: "closet-ll.jpg", deskripsi: "Lemari pakaian mewah dengan aksen kaca transparan." }
         ];
 
         async function loadProjects() {
@@ -155,27 +150,14 @@
                 const rows = data.split('\n').slice(1);
                 const grid = document.getElementById('portfolioGrid');
                 grid.innerHTML = '';
-                
                 localProjects.forEach(p => renderCard(p, grid));
-
                 rows.forEach(row => {
                     const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
                     if(!cols || cols.length < 6) return;
                     const nama = cols[0].replace(/"/g, '');
-                    if(nama.toLowerCase().includes('sofa')) return;
-
-                    renderCard({
-                        nama, lokasi: cols[1].replace(/"/g, ''),
-                        after: cols[3].replace(/"/g, ''),
-                        deskripsi: cols[5].replace(/"/g, '').substring(0, 80) + '...'
-                    }, grid);
+                    renderCard({ nama, lokasi: cols[1].replace(/"/g, ''), after: cols[3].replace(/"/g, ''), deskripsi: cols[5].replace(/"/g, '').substring(0, 80) + '...' }, grid);
                 });
-            } catch (e) { 
-                console.error("Gagal memuat database.", e);
-                const grid = document.getElementById('portfolioGrid');
-                grid.innerHTML = '';
-                localProjects.forEach(p => renderCard(p, grid));
-            }
+            } catch (e) { localProjects.forEach(p => renderCard(p, document.getElementById('portfolioGrid'))); }
         }
 
         function renderCard(p, container) {
