@@ -81,11 +81,32 @@
 
         if (targetNama) document.getElementById('p-nama').innerText = targetNama;
 
-        const localProjects = [
-            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", before: "before-kitchen.jpg", after: "2.jpg", deskripsi: "Perpaduan HPL motif kayu dan backsplash marmer hitam memberikan kesan premium." },
-            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", before: "before-bedroom.jpg", after: "bedroom-intan.jpg", deskripsi: "Bedroom set bernuansa cream dengan pencahayaan warm white yang menenangkan." },
-            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", before: "before-closet.jpg", after: "closet-ll.jpg", deskripsi: "Walk-in closet impian ala Pinterest yang memaksimalkan setiap sudut ruangan." }
-        ];
+       const localProjects = [
+    { 
+        nama: "Kitchen Set Wood & Black", 
+        lokasi: "Pasar Minggu", 
+        before: "before-kitchen.jpg", 
+        after: "2.jpg", 
+        deskripsi: "Final Project untuk Mrs. R di Pasar Minggu. Desain ini menonjolkan estetika modern dengan perpaduan tekstur kayu alami dan warna gelap matte yang elegan.",
+        material: "HPL Taco: TH 0231 AC (Andes Walnut) & TH 048 D (Graphite Matte). Base: Plywood 18mm."
+    },
+    { 
+        nama: "Master Bedroom Mrs. Intan", 
+        lokasi: "Cibitung", 
+        before: "before-bedroom.jpg", 
+        after: "bedroom-intan.jpg", 
+        deskripsi: "Bedroom set bernuansa cream dengan pencahayaan warm white yang menenangkan.",
+        material: "Plywood 18mm & Finishing HPL Cream"
+    },
+    { 
+        nama: "Walk-in Closet Mrs. LL", 
+        lokasi: "Bekasi", 
+        before: "before-closet.jpg", 
+        after: "closet-ll.jpg", 
+        deskripsi: "Walk-in closet impian ala Pinterest yang memaksimalkan setiap sudut ruangan.",
+        material: "Plywood 18mm & HPL White Glossy"
+    }
+];
 
         async function loadDetail() {
             let p = localProjects.find(item => item.nama === targetNama);
@@ -122,3 +143,4 @@
     </script>
 </body>
 </html>
+
