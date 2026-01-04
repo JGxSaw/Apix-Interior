@@ -13,7 +13,6 @@
         .gold-text { color: var(--gold); }
         .navy-bg { background-color: var(--navy); }
         
-        /* Floating WA Pill */
         .wa-float {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
             padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
@@ -30,9 +29,6 @@
             color: white; text-align: center; padding: 0 20px;
         }
 
-        .about-img { position: relative; border-radius: 10px; overflow: hidden; box-shadow: 20px 20px 0 var(--gold); }
-
-        /* Project Card Hover Overlay */
         .project-card { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; }
         .project-card img { transition: 0.7s ease; width: 100%; height: 320px; object-fit: cover; }
         .hover-overlay {
@@ -80,7 +76,9 @@
 
     <section id="about" class="py-24 px-[10%] bg-gray-50">
         <div class="grid md:grid-cols-2 gap-20 items-center text-left">
-            <div class="about-img"><img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80"></div>
+            <div class="rounded-xl overflow-hidden shadow-2xl border-[15px] border-white">
+                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80">
+            </div>
             <div>
                 <h2 class="text-3xl font-bold mb-8 uppercase italic">Tentang APIX Interior</h2>
                 <p class="mb-6 leading-loose text-sm text-gray-600 italic">"Furniture bukan hanya tentang bentuk — tapi bagaimana ruang terasa ketika ditempati."</p>
@@ -99,7 +97,7 @@
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-utensils gold-text text-2xl mb-4"></i>
                 <h4 class="font-bold uppercase text-xs mb-3 italic">Kitchen Set</h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed italic">Didesain presisi untuk kenyamanan memasak maksimal dengan material tahan lama.</p>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Didesain presisi untuk kenyamanan memasak maksimal dengan material plywood 18mm.</p>
             </div>
             <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition">
                 <i class="fas fa-door-open gold-text text-2xl mb-4"></i>
@@ -138,39 +136,25 @@
     </section>
 
     <footer class="bg-[#1a1a1a] text-[#777] py-16 px-[10%] text-center border-t border-gray-900 uppercase tracking-widest text-[9px]">
-        &copy; 2025 APIX INTERIOR – BEKASI. NIB: 0509220020851
+        &copy; 2026 APIX INTERIOR – BEKASI. NIB: 0509220020851
     </footer>
 
     <script>
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqIMofhXamYQSeLgR5c4sQFy0-__RlOjdudaXJ5STr0QgqhVKr40cxDC_hKDcusP9eyYuN-UeorIq1/pub?output=csv';
 
-        // 3 FOTO TERBARU
         const localProjects = [
-    { 
-        nama: "Kitchen Set Wood & Black", 
-        lokasi: "Bekasi", 
-        before: "before-kitchen.jpg", // Masukkan foto sebelum pengerjaan
-        after: "2.jpg", 
-        deskripsi: "Project kitchen set ini mengedepankan fungsionalitas dengan tampilan maskulin. Perpaduan HPL motif kayu dan backsplash marmer hitam memberikan kesan sangat premium.",
-        material: "Plywood 18mm, HPL Wood Grain, Top Marmer"
-    },
-    { 
-        nama: "Master Bedroom Mrs. Intan", 
-        lokasi: "Cibitung", 
-        before: "before-bedroom.jpg", 
-        after: "bedroom-intan.jpg", 
-        deskripsi: "Tempat terbaik buat recharge energi. Kamar Mrs. Intan di Cibitung ini menggunakan finishing HPL Cream dengan pencahayaan warm white untuk suasana yang menenangkan.",
-        material: "Plywood 18mm, HPL Cream, WPC Wallpanel"
-    },
-    { 
-        nama: "Walk-in Closet Mrs. LL", 
-        lokasi: "Bekasi", 
-        before: "before-closet.jpg", 
-        after: "closet-ll.jpg", 
-        deskripsi: "Mewujudkan lemari pakaian ala Pinterest. Walk-in closet ini memaksimalkan setiap sudut ruangan dengan sekat yang efisien dan pintu kaca untuk kesan luas.",
-        material: "Plywood 18mm, HPL White Glossy, Mirror"
-    }
-];
+            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", after: "2.jpg", deskripsi: "Project kitchen set ini mengedepankan fungsionalitas dengan tampilan maskulin mewah." },
+            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", after: "bedroom-intan.jpg", deskripsi: "Bedroom set bernuansa cream yang memberikan energi positif." },
+            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", after: "closet-ll.jpg", deskripsi: "Walk-in closet impian dengan aksen kaca dan pencahayaan mewah." }
+        ];
+
+        async function loadProjects() {
+            try {
+                const res = await fetch(sheetUrl);
+                const data = await res.text();
+                const rows = data.split('\n').slice(1);
+                const grid = document.getElementById('portfolioGrid');
+                grid.innerHTML = '';
                 
                 localProjects.forEach(p => renderCard(p, grid));
 
@@ -186,7 +170,12 @@
                         deskripsi: cols[5].replace(/"/g, '').substring(0, 80) + '...'
                     }, grid);
                 });
-            } catch (e) { console.error(e); }
+            } catch (e) { 
+                console.error("Gagal memuat database.", e);
+                const grid = document.getElementById('portfolioGrid');
+                grid.innerHTML = '';
+                localProjects.forEach(p => renderCard(p, grid));
+            }
         }
 
         function renderCard(p, container) {
@@ -198,7 +187,7 @@
                         <p class="text-[10px] italic mb-4 text-gray-200">${p.deskripsi}</p>
                         <span class="text-[9px] font-bold uppercase border-b border-gold pb-1 text-gold">See Details >></span>
                     </div>
-                    <div class="p-6 bg-white flex justify-between items-center">
+                    <div class="p-6 bg-white flex justify-between items-center text-left">
                         <div><p class="text-[9px] text-gray-400 uppercase">${p.lokasi}</p><h4 class="text-xs font-bold uppercase italic">${p.nama}</h4></div>
                         <span class="gold-text">→</span>
                     </div>
@@ -208,4 +197,3 @@
     </script>
 </body>
 </html>
-
