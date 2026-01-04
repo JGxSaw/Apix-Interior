@@ -146,18 +146,31 @@
 
         // 3 FOTO TERBARU
         const localProjects = [
-            { nama: "Kitchen Set Wood & Black", lokasi: "Bekasi", after: "2.jpg", deskripsi: "Kitchen set modern dengan kombinasi motif kayu dan marmer hitam mewah." },
-            { nama: "Master Bedroom Mrs. Intan", lokasi: "Cibitung", after: "Cibitung-Bedroom.jpg", deskripsi: "Bedroom set bernuansa cream yang memberikan energi positif hunian." },
-            { nama: "Walk-in Closet Mrs. LL", lokasi: "Bekasi", after: "Walk-in-Closet.jpg", deskripsi: "Walk-in closet impian dengan aksen kaca dan pencahayaan interior." }
-        ];
-
-        async function loadProjects() {
-            try {
-                const res = await fetch(sheetUrl);
-                const data = await res.text();
-                const rows = data.split('\n').slice(1);
-                const grid = document.getElementById('portfolioGrid');
-                grid.innerHTML = '';
+    { 
+        nama: "Kitchen Set Wood & Black", 
+        lokasi: "Bekasi", 
+        before: "before-kitchen.jpg", // Masukkan foto sebelum pengerjaan
+        after: "2.jpg", 
+        deskripsi: "Project kitchen set ini mengedepankan fungsionalitas dengan tampilan maskulin. Perpaduan HPL motif kayu dan backsplash marmer hitam memberikan kesan sangat premium.",
+        material: "Plywood 18mm, HPL Wood Grain, Top Marmer"
+    },
+    { 
+        nama: "Master Bedroom Mrs. Intan", 
+        lokasi: "Cibitung", 
+        before: "before-bedroom.jpg", 
+        after: "bedroom-intan.jpg", 
+        deskripsi: "Tempat terbaik buat recharge energi. Kamar Mrs. Intan di Cibitung ini menggunakan finishing HPL Cream dengan pencahayaan warm white untuk suasana yang menenangkan.",
+        material: "Plywood 18mm, HPL Cream, WPC Wallpanel"
+    },
+    { 
+        nama: "Walk-in Closet Mrs. LL", 
+        lokasi: "Bekasi", 
+        before: "before-closet.jpg", 
+        after: "closet-ll.jpg", 
+        deskripsi: "Mewujudkan lemari pakaian ala Pinterest. Walk-in closet ini memaksimalkan setiap sudut ruangan dengan sekat yang efisien dan pintu kaca untuk kesan luas.",
+        material: "Plywood 18mm, HPL White Glossy, Mirror"
+    }
+];
                 
                 localProjects.forEach(p => renderCard(p, grid));
 
@@ -195,3 +208,4 @@
     </script>
 </body>
 </html>
+
