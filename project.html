@@ -14,6 +14,7 @@
         .gold-text { color: var(--gold); }
         .stats-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
+        /* Tombol WA Melayang */
         .wa-float-fixed {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
             padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
@@ -42,36 +43,54 @@
 
         <div class="grid md:grid-cols-3 gap-6 mb-16 text-center text-xs">
             <div class="stats-card"><span class="text-2xl mb-2 block">📍</span><p class="font-bold text-gray-400 uppercase mb-1">Lokasi</p><p id="p-lokasi" class="font-semibold italic"></p></div>
-            <div class="stats-card"><span class="text-2xl mb-2 block">📦</span><p class="font-bold text-gray-400 uppercase mb-1">Material</p><p id="p-material" class="font-semibold italic">Plywood 18mm & HPL Taco</p></div>
-            <div class="stats-card"><span class="text-2xl mb-2 block">🛡️</span><p class="font-bold text-gray-400 uppercase mb-1">Status</p><p class="font-semibold">Bergaransi 100%</p></div>
+            <div class="stats-card"><span class="text-2xl mb-2 block">📦</span><p class="font-bold text-gray-400 uppercase mb-1">Material Utama</p><p id="p-material" class="font-semibold italic">Plywood 18mm & HPL Taco</p></div>
+            <div class="stats-card"><span class="text-2xl mb-2 block">🛡️</span><p class="font-bold text-gray-400 uppercase mb-1">Status Proyek</p><p class="font-semibold">Selesai 100% (Bergaransi)</p></div>
         </div>
 
         <div class="grid md:grid-cols-2 gap-16 mb-24 items-start">
             <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="text-xl font-bold uppercase mb-6 italic border-l-4 border-gold pl-4">Deskripsi Project</h3>
+                <h3 class="text-xl font-bold uppercase mb-6 italic border-l-4 border-gold pl-4">Deskripsi Pekerjaan</h3>
                 <p id="p-deskripsi" class="text-gray-600 leading-loose text-sm italic"></p>
             </div>
-            <div class="rounded-2xl overflow-hidden shadow-2xl border-[10px] border-white"><img id="p-img-after" src="" class="w-full"></div>
+            <div class="rounded-2xl overflow-hidden shadow-2xl border-[10px] border-white">
+                <img id="p-img-after" src="" class="w-full h-auto object-cover">
+            </div>
         </div>
 
         <div class="py-20 border-t">
-            <h3 class="text-2xl font-bold text-center uppercase mb-12 italic">Transformasi Before - After</h3>
+            <h3 class="text-2xl font-bold text-center uppercase mb-12 italic">Transformasi Visual: Before - After</h3>
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <div class="relative overflow-hidden rounded-xl shadow-lg">
                     <img id="p-img-before" src="" class="w-full h-80 object-cover grayscale transition-all hover:grayscale-0">
-                    <div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 text-[9px] font-bold uppercase">Before</div>
+                    <div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 text-[9px] font-bold uppercase">Kondisi Sebelum</div>
                 </div>
                 <div class="relative overflow-hidden rounded-xl shadow-lg border-4 border-gold">
                     <img id="p-img-after-2" src="" class="w-full h-80 object-cover">
-                    <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[9px] font-bold uppercase">After (Apix Interior)</div>
+                    <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[9px] font-bold uppercase">Hasil Akhir Apix</div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-[#1a1a1a] text-gray-600 py-12 text-center border-t border-gray-900">
-        <div class="text-white text-lg font-bold uppercase mb-4 italic tracking-tighter">APIX <span class="gold-text">INTERIOR</span></div>
-        <p class="text-[9px] uppercase tracking-[0.4em] font-medium">NIB: 0509220020851</p>
+    <footer class="bg-[#1a1a1a] text-gray-400 py-16 px-[10%] border-t border-gray-900">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
+            <div>
+                <div class="text-white text-xl font-bold uppercase mb-4 italic tracking-tighter">APIX <span class="gold-text">INTERIOR</span></div>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed">NIB: 0509220020851</p>
+            </div>
+            <div>
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Lokasi Workshop</h4>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed">Bekasi, Jawa Barat<br>(Sebelah Gereja HKBP)</p>
+            </div>
+            <div class="md:text-right">
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Media Sosial</h4>
+                <div class="flex justify-center md:justify-end gap-6 text-xl">
+                    <a href="https://www.tiktok.com/@apix_interior" target="_blank" class="hover:gold-text transition"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/apix_interior" target="_blank" class="hover:gold-text transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/6282134313332" target="_blank" class="hover:gold-text transition"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -81,49 +100,33 @@
 
         if (targetNama) document.getElementById('p-nama').innerText = targetNama;
 
-       const localProjects = [
-    { 
-        nama: "Kitchen Set Wood & Black", 
-        lokasi: "Pasar Minggu", 
-        before: "before-kitchen.jpg", 
-        after: "2.jpg", 
-        deskripsi: "Final Project untuk Mrs. R di Pasar Minggu. Desain ini menggunakan perpaduan tekstur kayu alami dan warna gelap matte.",
-        material: "HPL Taco: TH 0231 AC (Andes Walnut) & TH 048 D (Graphite Matte). Base: Plywood 18mm."
-    },
-    { 
-        nama: "Master Bedroom Mrs. Intan", 
-        lokasi: "Cibitung", 
-        before: "before-bedroom.jpg", 
-        after: "bedroom-intan.jpg", 
-        deskripsi: "Bedroom set bernuansa cream dengan pencahayaan warm white.",
-        material: "Plywood 18mm & Finishing HPL Cream"
-    },
-    { 
-        nama: "Walk-in Closet Mrs. LL", 
-        lokasi: "Bekasi", 
-        before: "before-closet.jpg", 
-        after: "closet-ll.jpg", 
-        deskripsi: "Walk-in closet impian ala Pinterest yang memaksimalkan setiap sudut ruangan.",
-        material: "Plywood 18mm & HPL White Glossy"
-    }
-];
-    { 
-        nama: "Master Bedroom Mrs. Intan", 
-        lokasi: "Cibitung", 
-        before: "before-bedroom.jpg", 
-        after: "bedroom-intan.jpg", 
-        deskripsi: "Bedroom set bernuansa cream dengan pencahayaan warm white yang menenangkan.",
-        material: "Plywood 18mm & Finishing HPL Cream"
-    },
-    { 
-        nama: "Walk-in Closet Mrs. LL", 
-        lokasi: "Bekasi", 
-        before: "before-closet.jpg", 
-        after: "closet-ll.jpg", 
-        deskripsi: "Walk-in closet impian ala Pinterest yang memaksimalkan setiap sudut ruangan.",
-        material: "Plywood 18mm & HPL White Glossy"
-    }
-];
+        // DATA LOKAL DENGAN DETAIL MRS. R
+        const localProjects = [
+            { 
+                nama: "Kitchen Set Wood & Black", 
+                lokasi: "Pasar Minggu", 
+                before: "before-kitchen.jpg", 
+                after: "2.jpg", 
+                deskripsi: "Final Project Mrs. R di Pasar Minggu. Desain ini mengedepankan fungsionalitas mewah dengan perpaduan warna alami dan gelap.",
+                material: "HPL Taco: Andes Walnut (TH 0231 AC) & Graphite Matte (TH 048 D). Base: Plywood 18mm."
+            },
+            { 
+                nama: "Master Bedroom Mrs. Intan", 
+                lokasi: "Cibitung", 
+                before: "before-bedroom.jpg", 
+                after: "bedroom-intan.jpg", 
+                deskripsi: "Bedroom set bernuansa cream yang memberikan energi positif hunian.",
+                material: "Plywood 18mm & Finishing HPL Cream."
+            },
+            { 
+                nama: "Walk-in Closet Mrs. LL", 
+                lokasi: "Bekasi", 
+                before: "before-closet.jpg", 
+                after: "closet-ll.jpg", 
+                deskripsi: "Walk-in closet impian dengan aksen kaca dan pencahayaan interior mewah.",
+                material: "Plywood 18mm & HPL White Glossy."
+            }
+        ];
 
         async function loadDetail() {
             let p = localProjects.find(item => item.nama === targetNama);
@@ -136,9 +139,12 @@
                         const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
                         if(!cols) return null;
                         return {
-                            nama: cols[0].replace(/"/g, ''), lokasi: cols[1].replace(/"/g, ''),
-                            before: cols[2].replace(/"/g, ''), after: cols[3].replace(/"/g, ''),
-                            deskripsi: cols[5].replace(/"/g, ''), material: cols[6] ? cols[6].replace(/"/g, '') : 'Plywood 18mm & HPL Taco'
+                            nama: cols[0].replace(/"/g, ''), 
+                            lokasi: cols[1].replace(/"/g, ''),
+                            before: cols[2].replace(/"/g, ''), 
+                            after: cols[3].replace(/"/g, ''),
+                            deskripsi: cols[5].replace(/"/g, ''), 
+                            material: cols[6] ? cols[6].replace(/"/g, '') : 'Plywood 18mm & HPL Taco'
                         };
                     }).find(item => item && item.nama === targetNama);
                 } catch (e) { console.error(e); }
@@ -151,7 +157,8 @@
                 document.getElementById('p-deskripsi').innerText = p.deskripsi;
                 document.getElementById('p-img-after').src = p.after;
                 document.getElementById('p-img-after-2').src = p.after;
-                document.getElementById('p-img-before').src = p.before || "https://via.placeholder.com/800x600?text=No+Before+Photo"; 
+                document.getElementById('p-img-before').src = p.before || "https://via.placeholder.com/800x600?text=Kondisi+Sebelum"; 
+                
                 const waMsg = encodeURIComponent(`Halo Apix Interior, saya tertarik dengan detail proyek "${p.nama}" di website.`);
                 document.getElementById('waFloatBtn').href = `https://wa.me/6282134313332?text=${waMsg}`;
             }
@@ -160,5 +167,3 @@
     </script>
 </body>
 </html>
-
-
