@@ -64,15 +64,32 @@
 
     <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
+            
             <a href="#" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
+            
             <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
                 <a href="#hero" class="nav-link hover:text-[#d4af37] transition">Home</a>
                 <a href="#about" class="nav-link hover:text-[#d4af37] transition">Tentang</a>
                 <a href="#services" class="nav-link hover:text-[#d4af37] transition">Layanan</a>
-                <a href="#recent-projects" class="nav-link hover:text-[#d4af37] transition">Portfolio</a> <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
+                <a href="#recent-projects" class="nav-link hover:text-[#d4af37] transition">Portfolio</a>
+                <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
                 <a href="#testimoni" class="nav-link hover:text-[#d4af37] transition">Testimoni</a>
                 <a href="#contact" class="nav-link hover:text-[#d4af37] transition">Kontak</a>
             </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-[#001f3f] focus:outline-none transition-transform duration-300">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-20 shadow-lg flex flex-col p-6 gap-4 font-bold text-xs uppercase tracking-widest text-center transition-all duration-300">
+            <a href="#hero" class="nav-link mobile-link hover:text-[#d4af37] transition py-2 border-b border-gray-50">Home</a>
+            <a href="#about" class="nav-link mobile-link hover:text-[#d4af37] transition py-2 border-b border-gray-50">Tentang</a>
+            <a href="#services" class="nav-link mobile-link hover:text-[#d4af37] transition py-2 border-b border-gray-50">Layanan</a>
+            <a href="#recent-projects" class="nav-link mobile-link hover:text-[#d4af37] transition py-2 border-b border-gray-50">Portfolio</a>
+            <a href="#price" class="nav-link mobile-link hover:text-[#d4af37] transition py-2 border-b border-gray-50">Harga</a>
+            <a href="#testimoni" class="nav-link mobile-link hover:text-[#d4af37] transition py-2 border-b border-gray-50">Testimoni</a>
+            <a href="#contact" class="nav-link mobile-link hover:text-[#d4af37] transition py-2">Kontak</a>
         </div>
     </nav>
 
@@ -140,7 +157,7 @@
              <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition group">
                 <i class="fas fa-layer-group gold-text text-2xl mb-4 group-hover:scale-110 transition"></i>
                 <h4 class="font-bold uppercase text-xs mb-3 italic">Lainnya</h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed italic">Vanity (Wastafel), Storage Bawah Tangga. <br><span class="text-red-400 font-bold"></span></p>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Vanity (Wastafel), Storage Bawah Tangga. <br><span class="text-red-400 font-bold">*Tidak memproduksi Sofa.</span></p>
             </div>
         </div>
     </section>
@@ -300,11 +317,40 @@
             });
         });
 
-        // 2. Active Navigation Logic
+        // 2. Navigation & Mobile Menu Logic
         document.addEventListener("DOMContentLoaded", function() {
             const sections = document.querySelectorAll("section, header, footer");
             const navLinks = document.querySelectorAll(".nav-link");
+            
+            // Elements for Mobile Menu
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIcon = mobileBtn.querySelector('i');
 
+            // --- Toggle Mobile Menu ---
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                
+                // Ganti ikon bars <-> times (silang)
+                if(mobileMenu.classList.contains('hidden')){
+                    mobileIcon.classList.remove('fa-times');
+                    mobileIcon.classList.add('fa-bars');
+                } else {
+                    mobileIcon.classList.remove('fa-bars');
+                    mobileIcon.classList.add('fa-times');
+                }
+            });
+
+            // Close Mobile Menu when clicking a link
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileIcon.classList.remove('fa-times');
+                    mobileIcon.classList.add('fa-bars');
+                });
+            });
+
+            // --- Active State Logic ---
             function removeActiveClasses() {
                 navLinks.forEach(link => {
                     link.classList.remove("active-nav");
@@ -344,4 +390,3 @@
     </script>
 </body>
 </html>
-
