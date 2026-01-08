@@ -3,167 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Project | Apix Interior</title>
+    <title>Portfolio - Apix Interior</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --navy: #0a192f; --gold: #c5a059; }
-        body { font-family: 'Poppins', sans-serif; color: var(--navy); background-color: #f8fafc; }
-        .navy-bg { background-color: var(--navy); }
+        :root { --navy: #001f3f; --gold: #d4af37; --bg-light: #f4f4f4; }
+        body { font-family: 'Poppins', sans-serif; color: var(--navy); scroll-behavior: smooth; }
         .gold-text { color: var(--gold); }
-        .stats-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-
-        /* Tombol WA Melayang */
-        .wa-float-fixed {
+        .navy-bg { background-color: var(--navy); }
+        
+        .wa-float {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
             padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
-            text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase;
-            box-shadow: 0 10px 25px rgba(37,211,102,0.4); z-index: 10000; transition: 0.3s ease;
+            text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3); z-index: 10000; transition: 0.3s;
         }
-        .wa-float-fixed:hover { transform: translateY(-5px) scale(1.05); background-color: #128c7e; }
+        .wa-float:hover { transform: scale(1.05) translateY(-5px); background-color: #128c7e; }
+
+        /* Hero Khusus Halaman Project (Lebih Pendek) */
+        .page-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 31, 63, 0.9), rgba(0, 31, 63, 0.9)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
+        }
+
+        /* Label untuk gambar (Real vs Desain vs Before) */
+        .img-label {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(0,0,0,0.7); color: #d4af37;
+            font-size: 10px; padding: 5px; text-align: center;
+            font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+        }
     </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
-    <a id="waFloatBtn" href="#" target="_blank" class="wa-float-fixed">
-        <i class="fab fa-whatsapp text-2xl"></i><span>Konsultasi Sekarang</span>
+    <a href="https://wa.me/6282134313332" target="_blank" class="wa-float">
+        <i class="fab fa-whatsapp text-2xl"></i><span>Konsultasi Gratis</span>
     </a>
 
-    <nav class="navy-bg text-white p-6 sticky top-0 z-50 flex items-center px-[10%] shadow-lg">
-        <a href="index.html" class="font-bold uppercase italic text-lg tracking-tighter">APIX <span class="gold-text">INTERIOR</span></a>
+    <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
+            <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
+                <a href="index.html" class="hover:gold-text transition">Home</a>
+                <a href="index.html#about" class="hover:gold-text transition">Tentang</a>
+                <a href="index.html#services" class="hover:gold-text transition">Layanan</a>
+                <a href="project.html" class="gold-text transition">Portfolio</a>
+                <a href="index.html#contact" class="hover:gold-text transition">Kontak</a>
+            </div>
+        </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto py-16 px-6">
-        <div class="text-center mb-16">
-            <h4 class="gold-text font-bold tracking-[0.4em] uppercase text-[10px] mb-2">Project Details</h4>
-            <h1 id="p-nama" class="text-3xl md:text-5xl font-bold uppercase italic mb-4 tracking-tight">Memuat...</h1>
-            <p id="p-lokasi-top" class="text-gray-400 font-medium italic tracking-widest text-xs uppercase"></p>
-        </div>
+    <header class="page-hero">
+        <h4 class="gold-text font-bold tracking-[0.5em] uppercase text-[12px] mb-4">GALLERY</h4>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 uppercase tracking-tight italic">Portfolio Project</h1>
+        <p class="text-xs md:text-sm max-w-2xl font-light uppercase tracking-widest text-gray-300">
+            Bukti Kualitas: Dari Desain 3D Menjadi Realita
+        </p>
+    </header>
 
-        <div class="grid md:grid-cols-3 gap-6 mb-16 text-center text-xs">
-            <div class="stats-card"><span class="text-2xl mb-2 block">📍</span><p class="font-bold text-gray-400 uppercase mb-1">Lokasi</p><p id="p-lokasi" class="font-semibold italic"></p></div>
-            <div class="stats-card"><span class="text-2xl mb-2 block">📦</span><p class="font-bold text-gray-400 uppercase mb-1">Material Utama</p><p id="p-material" class="font-semibold italic">Plywood 18mm & HPL Taco</p></div>
-            <div class="stats-card"><span class="text-2xl mb-2 block">🛡️</span><p class="font-bold text-gray-400 uppercase mb-1">Status Proyek</p><p class="font-semibold">Selesai 100% (Bergaransi)</p></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-16 mb-24 items-start">
-            <div class="bg-white p-10 rounded-2xl shadow-sm border border-gray-100">
-                <h3 class="text-xl font-bold uppercase mb-6 italic border-l-4 border-gold pl-4">Deskripsi Pekerjaan</h3>
-                <p id="p-deskripsi" class="text-gray-600 leading-loose text-sm italic"></p>
-            </div>
-            <div class="rounded-2xl overflow-hidden shadow-2xl border-[10px] border-white">
-                <img id="p-img-after" src="" class="w-full h-auto object-cover">
-            </div>
-        </div>
-
-        <div class="py-20 border-t">
-            <h3 class="text-2xl font-bold text-center uppercase mb-12 italic">Transformasi Visual: Before - After</h3>
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="relative overflow-hidden rounded-xl shadow-lg">
-                    <img id="p-img-before" src="" class="w-full h-80 object-cover grayscale transition-all hover:grayscale-0">
-                    <div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 text-[9px] font-bold uppercase">Kondisi Sebelum</div>
-                </div>
-                <div class="relative overflow-hidden rounded-xl shadow-lg border-4 border-gold">
-                    <img id="p-img-after-2" src="" class="w-full h-80 object-cover">
-                    <div class="absolute top-4 left-4 bg-gold text-white px-3 py-1 text-[9px] font-bold uppercase">Hasil Akhir Apix</div>
+    <div class="max-w-7xl mx-auto py-20 px-6">
+        
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-16 border border-gray-100">
+            <div class="p-8 border-b border-gray-100 bg-white">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <span class="bg-[#001f3f] text-white text-[9px] px-3 py-1 rounded full uppercase tracking-widest font-bold">Kitchen Set</span>
+                        <h2 class="text-2xl font-bold text-[#001f3f] mt-3 italic uppercase">Kitchen Set Minimalis - Bekasi</h2>
+                        <p class="text-xs text-gray-500 mt-2"><i class="fas fa-map-marker-alt text-[#d4af37] mr-2"></i>Grand Wisata, Bekasi</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right max-w-md">
+                        <p class="text-xs text-gray-600 italic leading-relaxed">
+                            "Konsep modern minimalis dengan dominasi warna putih dan aksen kayu. Tantangan utama adalah menyembunyikan kolom beton agar dapur terlihat lapang."
+                        </p>
+                        <div class="mt-3 text-[10px] font-bold text-[#001f3f] uppercase">
+                            Material: Plywood 18mm | Finishing: HPL Taco | Top Table: Granit
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
 
-    <footer class="bg-[#1a1a1a] text-gray-400 py-16 px-[10%] border-t border-gray-900">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 text-center md:text-left">
-            <div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-gray-200">
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110" alt="Kitchen Set Real">
+                    <div class="img-label">Hasil Jadi (Real)</div>
+                </div>
+                
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-90" alt="Kitchen Set Design">
+                    <div class="img-label">Desain 3D</div>
+                </div>
+
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale" alt="Kitchen Set Before">
+                    <div class="img-label">Proses / Before</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-16 border border-gray-100">
+            <div class="p-8 border-b border-gray-100 bg-white">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <span class="bg-[#d4af37] text-white text-[9px] px-3 py-1 rounded full uppercase tracking-widest font-bold">Wardrobe</span>
+                        <h2 class="text-2xl font-bold text-[#001f3f] mt-3 italic uppercase">Lemari Full Plafon - Jatiwarna</h2>
+                        <p class="text-xs text-gray-500 mt-2"><i class="fas fa-map-marker-alt text-[#d4af37] mr-2"></i>Jatiwarna, Bekasi</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right max-w-md">
+                        <p class="text-xs text-gray-600 italic leading-relaxed">
+                            "Memaksimalkan penyimpanan vertikal hingga plafon (ceiling height). Pintu sliding kaca cermin (mirror) memberikan kesan ruangan lebih luas."
+                        </p>
+                        <div class="mt-3 text-[10px] font-bold text-[#001f3f] uppercase">
+                            Material: Blockmin 18mm | Finishing: HPL White Glossy | Aksesoris: Cermin & LED Strip
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-gray-200">
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1595515106969-1ce29569ff53?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="img-label">Hasil Jadi (Real)</div>
+                </div>
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1616594039964-40891a911a9b?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-90">
+                    <div class="img-label">Desain 3D</div>
+                </div>
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a1c002085d2f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale">
+                    <div class="img-label">Proses / Before</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-16 border border-gray-100">
+            <div class="p-8 border-b border-gray-100 bg-white">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <span class="bg-[#001f3f] text-white text-[9px] px-3 py-1 rounded full uppercase tracking-widest font-bold">Backdrop TV</span>
+                        <h2 class="text-2xl font-bold text-[#001f3f] mt-3 italic uppercase">Backdrop TV & Partisi - Tambun</h2>
+                        <p class="text-xs text-gray-500 mt-2"><i class="fas fa-map-marker-alt text-[#d4af37] mr-2"></i>Tambun Selatan, Bekasi</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 text-left md:text-right max-w-md">
+                        <p class="text-xs text-gray-600 italic leading-relaxed">
+                            "Solusi penyekat ruangan (partisi) yang berfungsi ganda sebagai backdrop TV. Kabel tertata rapi di dalam panel."
+                        </p>
+                        <div class="mt-3 text-[10px] font-bold text-[#001f3f] uppercase">
+                            Material: Plywood | Finishing: HPL Wood Grain & PVC Marble
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-1 bg-gray-200">
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                    <div class="img-label">Hasil Jadi (Real)</div>
+                </div>
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-90">
+                    <div class="img-label">Desain 3D</div>
+                </div>
+                <div class="relative h-64 md:h-80 group overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1505691938895-1758d7bab58d?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transition duration-700 group-hover:scale-110 grayscale">
+                    <div class="img-label">Proses / Before</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-[#0a192f] text-gray-400 py-16 px-[10%] border-t border-gray-800">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+            <div class="col-span-1 md:col-span-1">
                 <div class="text-white text-xl font-bold uppercase mb-4 italic tracking-tighter">APIX <span class="gold-text">INTERIOR</span></div>
-                <p class="text-[10px] uppercase tracking-widest leading-relaxed">NIB: 0509220020851</p>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed mb-4">Custom Furniture & Interior</p>
+                <p class="text-[10px] text-gray-500">NIB: 0509220020851</p>
             </div>
             <div>
-                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Lokasi Workshop</h4>
-                <p class="text-[10px] uppercase tracking-widest leading-relaxed">Bekasi, Jawa Barat<br>(Sebelah Gereja HKBP)</p>
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Kontak</h4>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed mb-2"><i class="fab fa-whatsapp gold-text mr-2"></i> 0821-3431-3332</p>
+                <p class="text-[10px] tracking-widest leading-relaxed mb-2"><i class="fas fa-envelope gold-text mr-2"></i> interiorapix@gmail.com</p>
+            </div>
+            <div>
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Workshop</h4>
+                <p class="text-[10px] uppercase tracking-widest leading-relaxed">
+                    Bekasi, Jawa Barat<br>
+                    (Cari "APIX INTERIOR" di Google Maps)
+                </p>
             </div>
             <div class="md:text-right">
-                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Media Sosial</h4>
-                <div class="flex justify-center md:justify-end gap-6 text-xl">
-                    <a href="https://www.tiktok.com/@apix_interior" target="_blank" class="hover:gold-text transition"><i class="fab fa-tiktok"></i></a>
+                <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Social Media</h4>
+                <div class="flex justify-center md:justify-end gap-4 text-lg mb-2">
                     <a href="https://instagram.com/apix_interior" target="_blank" class="hover:gold-text transition"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/6282134313332" target="_blank" class="hover:gold-text transition"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="hover:gold-text transition"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" target="_blank" class="hover:gold-text transition"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="hover:gold-text transition"><i class="fab fa-facebook"></i></a>
                 </div>
+                <p class="text-[9px] mt-4 uppercase tracking-[0.2em] text-gray-600">&copy; 2025 APIX Interior</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqIMofhXamYQSeLgR5c4sQFy0-__RlOjdudaXJ5STr0QgqhVKr40cxDC_hKDcusP9eyYuN-UeorIq1/pub?output=csv';
-        const urlParams = new URLSearchParams(window.location.search);
-        const targetNama = urlParams.get('nama');
-
-        if (targetNama) document.getElementById('p-nama').innerText = targetNama;
-
-        // DATA LOKAL DENGAN DETAIL MRS. R
-        const localProjects = [
-            { 
-                nama: "Kitchen Set Wood & Black", 
-                lokasi: "Pasar Minggu", 
-                before: "before-kitchen.jpg", 
-                after: "2.jpg", 
-                deskripsi: "Final Project Mrs. R di Pasar Minggu. Desain ini mengedepankan fungsionalitas mewah dengan perpaduan warna alami dan gelap.",
-                material: "HPL Taco: Andes Walnut (TH 0231 AC) & Graphite Matte (TH 048 D). Base: Plywood 18mm."
-            },
-            { 
-                nama: "Master Bedroom Mrs. Intan", 
-                lokasi: "Cibitung", 
-                before: "before-bedroom.jpg", 
-                after: "bedroom-intan.jpg", 
-                deskripsi: "Bedroom set bernuansa cream yang memberikan energi positif hunian.",
-                material: "Plywood 18mm & Finishing HPL Cream."
-            },
-            { 
-                nama: "Walk-in Closet Mrs. LL", 
-                lokasi: "Bekasi", 
-                before: "before-closet.jpg", 
-                after: "closet-ll.jpg", 
-                deskripsi: "Walk-in closet impian dengan aksen kaca dan pencahayaan interior mewah.",
-                material: "Plywood 18mm & HPL White Glossy."
-            }
-        ];
-
-        async function loadDetail() {
-            let p = localProjects.find(item => item.nama === targetNama);
-            if(!p) {
-                try {
-                    const res = await fetch(sheetUrl);
-                    const data = await res.text();
-                    const rows = data.split('\n').slice(1);
-                    p = rows.map(row => {
-                        const cols = row.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
-                        if(!cols) return null;
-                        return {
-                            nama: cols[0].replace(/"/g, ''), 
-                            lokasi: cols[1].replace(/"/g, ''),
-                            before: cols[2].replace(/"/g, ''), 
-                            after: cols[3].replace(/"/g, ''),
-                            deskripsi: cols[5].replace(/"/g, ''), 
-                            material: cols[6] ? cols[6].replace(/"/g, '') : 'Plywood 18mm & HPL Taco'
-                        };
-                    }).find(item => item && item.nama === targetNama);
-                } catch (e) { console.error(e); }
-            }
-
-            if(p) {
-                document.getElementById('p-lokasi-top').innerText = p.lokasi;
-                document.getElementById('p-lokasi').innerText = p.lokasi;
-                if(p.material) document.getElementById('p-material').innerText = p.material;
-                document.getElementById('p-deskripsi').innerText = p.deskripsi;
-                document.getElementById('p-img-after').src = p.after;
-                document.getElementById('p-img-after-2').src = p.after;
-                document.getElementById('p-img-before').src = p.before || "https://via.placeholder.com/800x600?text=Kondisi+Sebelum"; 
-                
-                const waMsg = encodeURIComponent(`Halo Apix Interior, saya tertarik dengan detail proyek "${p.nama}" di website.`);
-                document.getElementById('waFloatBtn').href = `https://wa.me/6282134313332?text=${waMsg}`;
-            }
-        }
-        loadDetail();
-    </script>
 </body>
 </html>
