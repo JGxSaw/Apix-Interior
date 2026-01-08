@@ -8,16 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-.active-nav {
-    color: #d4af37 !important; /* Warna Gold */
-    border-bottom: 2px solid #d4af37; /* Garis bawah gold (opsional, biar makin jelas) */
-    padding-bottom: 5px;
-}
         :root { --navy: #001f3f; --gold: #d4af37; --bg-light: #f4f4f4; }
         body { font-family: 'Poppins', sans-serif; color: var(--navy); scroll-behavior: smooth; }
         .gold-text { color: var(--gold); }
         .navy-bg { background-color: var(--navy); }
         
+        /* Tombol WA Melayang */
         .wa-float {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white;
             padding: 15px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px;
@@ -26,6 +22,7 @@
         }
         .wa-float:hover { transform: scale(1.05) translateY(-5px); background-color: #128c7e; }
 
+        /* Hero Background */
         .hero {
             height: 90vh;
             background: linear-gradient(rgba(0, 31, 63, 0.8), rgba(0, 31, 63, 0.8)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80');
@@ -34,6 +31,16 @@
             color: white; text-align: center; padding: 0 20px;
         }
 
+        /* Navigasi Aktif (Gold) */
+        .active-nav {
+            color: #d4af37 !important;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 5px;
+        }
+
+        /* Helper FAQ */
+        .hidden-answer { display: none; }
+        
         .project-card { position: relative; overflow: hidden; border-radius: 12px; cursor: pointer; }
         .project-card img { transition: 0.7s ease; width: 100%; height: 320px; object-fit: cover; }
         .hover-overlay {
@@ -44,10 +51,6 @@
         .project-card:hover .hover-overlay { opacity: 1; }
         .project-card:hover img { transform: scale(1.1); }
         
-        .faq-item { border-bottom: 1px solid #eee; padding: 20px 0; }
-        .faq-question { font-weight: 600; font-size: 13px; display: flex; justify-content: space-between; cursor: pointer; }
-        
-        /* Tambahan untuk Grid Service agar rapi 3 kolom */
         .service-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 2.5rem; }
         @media(min-width: 768px) { .service-grid { grid-template-columns: repeat(3, 1fr); } }
     </style>
@@ -58,70 +61,22 @@
         <i class="fab fa-whatsapp text-2xl"></i><span>Konsultasi Gratis</span>
     </a>
 
-    <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm">
+    <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
-            
-            <div class="hidden md:flex space-x-6 font-bold text-[10px] uppercase tracking-[0.2em]">
-                <a <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
-        
-        <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
-            <a href="#hero" class="nav-link hover:text-[#d4af37] transition">Home</a>
-            <a href="#about" class="nav-link hover:text-[#d4af37] transition">Tentang</a>
-            <a href="#services" class="nav-link hover:text-[#d4af37] transition">Layanan</a>
-            <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
-            <a href="project.html" class="nav-link hover:text-[#d4af37] transition">Portfolio</a>
-            <a href="#contact" class="nav-link hover:text-[#d4af37] transition">Kontak</a>
-        </div>
-    </div>
-                <a 
-                    <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
-        
-        <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
-            <a href="#hero" class="nav-link hover:text-[#d4af37] transition">Home</a>
-            <a href="#about" class="nav-link hover:text-[#d4af37] transition">Tentang</a>
-            <a href="#services" class="nav-link hover:text-[#d4af37] transition">Layanan</a>
-            <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
-            <a href="project.html" class="nav-link hover:text-[#d4af37] transition">Portfolio</a>
-            <a href="#contact" class="nav-link hover:text-[#d4af37] transition">Kontak</a>
-        </div>
-    </div>
-                <a 
-                    <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
-        
-        <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
-            <a href="#hero" class="nav-link hover:text-[#d4af37] transition">Home</a>
-            <a href="#about" class="nav-link hover:text-[#d4af37] transition">Tentang</a>
-            <a href="#services" class="nav-link hover:text-[#d4af37] transition">Layanan</a>
-            <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
-            <a href="project.html" class="nav-link hover:text-[#d4af37] transition">Portfolio</a>
-            <a href="#contact" class="nav-link hover:text-[#d4af37] transition">Kontak</a>
-        </div>
-    </div></a>
-                <a <nav class="fixed w-full z-50 bg-white/95 border-b border-gray-100 px-6 backdrop-blur-sm transition-all duration-300" id="navbar">
-    <div class="max-w-7xl mx-auto h-20 flex justify-between items-center">
-        <a href="#" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
-        
-        <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
-            <a href="#hero" class="nav-link hover:text-[#d4af37] transition">Home</a>
-            <a href="#about" class="nav-link hover:text-[#d4af37] transition">Tentang</a>
-            <a href="#services" class="nav-link hover:text-[#d4af37] transition">Layanan</a>
-            <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
-            <a href="project.html" class="nav-link hover:text-[#d4af37] transition">Portfolio</a>
-            <a href="#contact" class="nav-link hover:text-[#d4af37] transition">Kontak</a>
-        </div>
-    </div>
-</nav>href="project.html" class="hover:gold-text transition">Portfolio</a>
+            <a href="#" class="text-xl font-bold tracking-tighter uppercase italic">APIX <span class="gold-text">INTERIOR</span></a>
+            <div class="hidden md:flex space-x-8 font-bold text-[10px] uppercase tracking-[0.2em]">
+                <a href="#hero" class="nav-link hover:text-[#d4af37] transition">Home</a>
+                <a href="#about" class="nav-link hover:text-[#d4af37] transition">Tentang</a>
+                <a href="#services" class="nav-link hover:text-[#d4af37] transition">Layanan</a>
+                <a href="#price" class="nav-link hover:text-[#d4af37] transition">Harga</a>
+                <a href="#testimoni" class="nav-link hover:text-[#d4af37] transition">Testimoni</a>
+                <a href="project.html" class="nav-link hover:text-[#d4af37] transition">Portfolio</a>
+                <a href="#contact" class="nav-link hover:text-[#d4af37] transition">Kontak</a>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <header id="hero" class="hero">
         <h4 class="gold-text font-bold tracking-[0.5em] uppercase text-[12px] mb-4">APIX INTERIOR</h4>
         <h1 class="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight italic">"Solusi Furniture Hunian Anda"</h1>
         <p class="text-xs md:text-sm max-w-3xl mb-10 font-light uppercase tracking-widest text-gray-200 leading-relaxed">
@@ -182,7 +137,7 @@
              <div class="p-8 border border-gray-100 rounded bg-white hover:shadow-xl transition group">
                 <i class="fas fa-layer-group gold-text text-2xl mb-4 group-hover:scale-110 transition"></i>
                 <h4 class="font-bold uppercase text-xs mb-3 italic">Lainnya</h4>
-                <p class="text-[11px] text-gray-500 leading-relaxed italic">Vanity (Wastafel), Storage Bawah Tangga. <br></p>
+                <p class="text-[11px] text-gray-500 leading-relaxed italic">Vanity (Wastafel), Storage Bawah Tangga. <br><span class="text-red-400 font-bold">*Tidak memproduksi Sofa.</span></p>
             </div>
         </div>
     </section>
@@ -224,48 +179,34 @@
     <section id="faq" class="py-24 px-[10%] max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold uppercase mb-12 italic text-center">FAQ</h2>
         
-        <div class="faq-item">
-            <div class="faq-question">Q: Apakah bisa minta estimasi biaya terlebih dahulu? <span>+</span></div>
+        <div class="faq-item border-b border-gray-200 py-4">
+            <div class="faq-question flex justify-between items-center cursor-pointer font-bold text-sm">Q: Apakah bisa minta estimasi biaya terlebih dahulu? <span>+</span></div>
             <p class="text-xs text-gray-500 mt-4 italic hidden-answer">A: Bisa, APIX akan membantu membuatkan estimasi biaya terlebih dahulu sebelum ke proses survey.</p>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">Q: Berapa lama proses pengerjaan? <span>+</span></div>
+        <div class="faq-item border-b border-gray-200 py-4">
+            <div class="faq-question flex justify-between items-center cursor-pointer font-bold text-sm">Q: Berapa lama proses pengerjaan? <span>+</span></div>
             <p class="text-xs text-gray-500 mt-4 italic hidden-answer">A: Estimasi 3–6 minggu tergantung antrian, skala, material dan finishing yang digunakan.</p>
         </div>
         
-        <div class="faq-item">
-            <div class="faq-question">Q: Area layanan mana saja? <span>+</span></div>
+        <div class="faq-item border-b border-gray-200 py-4">
+            <div class="faq-question flex justify-between items-center cursor-pointer font-bold text-sm">Q: Area layanan mana saja? <span>+</span></div>
             <p class="text-xs text-gray-500 mt-4 italic hidden-answer">A: Bekasi (Prioritas), Jakarta, Depok, Tangerang, Bogor (Bisa disesuaikan).</p>
         </div>
     </section>
 
-    <section id="portfolio-list" class="py-24 px-[10%] bg-gray-50 text-center">
-        <h2 class="text-3xl font-bold uppercase mb-4 italic">Portfolio Project</h2>
-        <p class="text-gray-400 text-[10px] uppercase tracking-widest mb-16 italic">Klik untuk melihat detail</p>
-        <div id="portfolioGrid" class="grid md:grid-cols-3 gap-8 text-left">
-            </div>
-        <div class="mt-12">
-            <a href="project.html" class="px-8 py-3 bg-[#001f3f] text-white text-[10px] uppercase font-bold tracking-[0.2em] rounded hover:bg-[#d4af37] transition">Lihat Semua Project</a>
-        </div>
-    </section>
-
-
-    <footer class="bg-[#0a192f] text-gray-400 py-16 px-[10%] border-t border-gray-800">
+    <footer id="contact" class="bg-[#0a192f] text-gray-400 py-16 px-[10%] border-t border-gray-800">
         <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
-            
             <div class="col-span-1 md:col-span-1">
                 <div class="text-white text-xl font-bold uppercase mb-4 italic tracking-tighter">APIX <span class="gold-text">INTERIOR</span></div>
                 <p class="text-[10px] uppercase tracking-widest leading-relaxed mb-4">Custom Furniture & Interior</p>
                 <p class="text-[10px] text-gray-500">NIB: 0509220020851</p>
             </div>
-
             <div>
                 <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Kontak</h4>
                 <p class="text-[10px] uppercase tracking-widest leading-relaxed mb-2"><i class="fab fa-whatsapp gold-text mr-2"></i> 0821-3431-3332</p>
                 <p class="text-[10px] tracking-widest leading-relaxed mb-2"><i class="fas fa-envelope gold-text mr-2"></i> interiorapix@gmail.com</p>
             </div>
-
             <div>
                 <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Workshop</h4>
                 <p class="text-[10px] uppercase tracking-widest leading-relaxed">
@@ -273,7 +214,6 @@
                     (Cari "APIX INTERIOR" di Google Maps)
                 </p>
             </div>
-
             <div class="md:text-right">
                 <h4 class="text-white text-[11px] font-bold uppercase tracking-[0.3em] mb-4">Social Media</h4>
                 <div class="flex justify-center md:justify-end gap-4 text-lg mb-2">
@@ -289,86 +229,62 @@
     </footer>
 
     <script>
-        // Simple FAQ Toggle Logic
+        // 1. FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', event => {
                 const answer = item.nextElementSibling;
-                answer.classList.toggle('hidden-answer');
-                // Optional: Change + to - icon
+                if(answer.style.display === "block") {
+                    answer.style.display = "none";
+                } else {
+                    answer.style.display = "block";
+                }
                 const icon = item.querySelector('span');
                 icon.innerText = icon.innerText === '+' ? '-' : '+';
             });
         });
-        
-        // CSS helper for FAQ toggle (inline for simplicity)
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .hidden-answer { display: none; } 
-        `;
-        document.head.appendChild(style);
 
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqIMofhXamYQSeLgR5c4sQFy0-__RlOjdudaXJ5STr0QgqhVKr40cxDC_hKDcusP9eyYuN-UeorIq1/pub?output=csv';
+        // 2. Active Navigation Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll("section, header, footer");
+            const navLinks = document.querySelectorAll(".nav-link");
 
-        const localProjects = [
-            { 
-                nama: "Kitchen Set Modern", 
-                lokasi: "Bekasi", 
-                after: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=800&q=80", 
-                deskripsi: "Kitchen set minimalis dengan HPL Taco dan Rak Piring Stainless." 
-            },
-            { 
-                nama: "Master Bedroom", 
-                lokasi: "Jakarta", 
-                after: "https://images.unsplash.com/photo-1616594039964-40891a911a9b?auto=format&fit=crop&w=800&q=80", 
-                deskripsi: "Bedroom set bernuansa warm cozy untuk istirahat maksimal." 
-            },
-            { 
-                nama: "Backdrop TV Mewah", 
-                lokasi: "Cibubur", 
-                after: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80", 
-                deskripsi: "Backdrop TV full plafon dengan hidden lamp dan storage rapi." 
+            function removeActiveClasses() {
+                navLinks.forEach(link => {
+                    link.classList.remove("active-nav");
+                    link.classList.remove("text-[#d4af37]");
+                });
             }
-        ];
 
-        async function loadProjects() {
-            const grid = document.getElementById('portfolioGrid');
-            grid.innerHTML = '';
-            // Tampilkan data lokal dulu
-            localProjects.forEach(p => renderCard(p, grid));
+            // A. Click Event
+            navLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    removeActiveClasses();
+                    this.classList.add("active-nav");
+                });
+            });
 
-            try {
-                // Coba fetch (jika ada internet & link valid)
-                const res = await fetch(sheetUrl);
-                if(res.ok) {
-                    const data = await res.text();
-                    // Parsing simple CSV logic here if needed
-                    // ...
+            // B. Scroll Spy Event
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // -150px offset untuk navbar height
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                if (current) {
+                    navLinks.forEach(link => {
+                        link.classList.remove("active-nav");
+                        if (link.getAttribute("href").includes(current)) {
+                            link.classList.add("active-nav");
+                        }
+                    });
                 }
-            } catch (e) { 
-                console.log("Using local data");
-            }
-        }
-
-        function renderCard(p, container) {
-            container.innerHTML += `
-                <div class="project-card shadow-lg" onclick="location.href='project.html'">
-                    <img src="${p.after}" alt="${p.nama}">
-                    <div class="hover-overlay">
-                        <h3 class="text-sm font-bold uppercase italic mb-2">${p.nama}</h3>
-                        <p class="text-[10px] italic mb-4 text-gray-200">${p.deskripsi}</p>
-                        <span class="text-[9px] font-bold uppercase border-b border-gold pb-1 text-gold">See Details >></span>
-                    </div>
-                    <div class="p-6 bg-white flex justify-between items-center text-left">
-                        <div><p class="text-[9px] text-gray-400 uppercase">${p.lokasi}</p><h4 class="text-xs font-bold uppercase italic">${p.nama}</h4></div>
-                        <span class="gold-text">→</span>
-                    </div>
-                </div>`;
-        }
-        loadProjects();
+            });
+        });
     </script>
 </body>
 </html>
-
-
-
-
